@@ -1,0 +1,16 @@
+body{
+    margin:0px;
+    font-family: Roboto,Arial;
+    box-sizing: border-box;
+    color:#212121;
+}
+main{
+    margin-top:140px;
+    margin-bottom:100px;
+    padding:0px 30px;
+    box-sizing: border-box;
+    width:100%;
+    max-width: 1160px;
+    align-self:center;
+    justify-self: center;
+}

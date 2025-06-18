@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce</title>
+    <link rel="icon" >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="Styles/general.css" rel="stylesheet">
+    <link href="Styles/navbar.css" rel="stylesheet">
+    <link href="Styles/grid.css" rel="stylesheet">
+</head>
+<body>
+    
+    <header>
+        <div class="navbar">
+            <div class="left-section">
+                <a class="header-link" href="https://jaingopal07.github.io/ecommerce-clone/">
+                    <img class="ecommerce-logo" src="Logo/ecommerce-logo.png">
+                    <img class="ecommerce-mobile-logo" src="Logo/ecommerce-mobile-logo.png">
+                </a>
+            </div>
+            <div class="middle-section">
+                <input class="search-bar" placeholder="Search" id="search-bar">
+                <button class="search">
+                    <img src="Logo/search-icon.png" class="search-icon">
+                </button>
+            </div>
+            <div class="right-section">
+                <a href="" class="orders-header-link">
+                    <span class="return-text-header">Returns</span>
+                    <span class="orders-text-header">& Orders</span>
+                </a>
+                <a href="https://jaingopal07.github.io/ecommerce-clone/checkout" class="cart-header-link">
+                    <div class="cart-header">
+                        <img src="Logo/cart-icon.png" class="cart-icon">
+                        <div class="cart-qty"></div>
+                    </div>
+                    <div class="cart-text">Cart</div>
+                </a>
+            </div>
+            <div class="right-section-mobile">
+                <img class="hamburger-menu-header" src="Logo/hamburger-menu.png">
+            </div>
+        </div>
+        <div class="hamburger-menu-dropdown">
+            <a class="hamburger-menu-link" href="" >Returns & Orders</a>
+            <a class="hamburger-menu-link" href="" >Cart(<span class="cart-qty-mobile"></span>)</a>
+        </div>
+    </header>
+    <main>
+        <div class="empty-message">
+            No products matched your search
+        </div>
+        <div class="product-grid"></div>
+    </main>
+    <script src="scripts/general.js"></script>
+    <script src="scripts/navbar.js"></script>
+    <script src="scripts/cart.js"></script>
+</body>
+</html>

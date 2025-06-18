@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Styles/checkout-general.css">
+    <link rel="stylesheet" href="Styles/checkout-header.css">
+    <link rel="stylesheet" href="Styles/checkout-grid.css">
+</head>
+<body>
+    <header>
+        <div class="checkout-header">
+            <div class="header-content">
+                <div class="left-section">
+                    <a href="https://jaingopal07.github.io/ecommerce-clone/">
+                        <img src="Logo/ecommerce-logo.png" class="ecommerce-logo-checkout">
+                        <img src="Logo/ecommerce-mobile-logo.png" class="ecommerce-mobile-logo-checkout">
+                    </a>
+                </div> 
+                <div class="middle-section">
+                    Checkout (<a href="https://jaingopal07.github.io/ecommerce-clone/" class="return-to-home-link"><span class="no-of-items">14</span> items</a>)
+                </div>
+                <div class="right-section">
+                    <img src="Logo/checkout-lock-icon.png" class="checkout-lock-icon">
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="page-title">
+            Review your order
+        </div>
+        <div class="checkout-grid">
+            <div class="empty-cart-summary">
+                <div>Your cart is empty.</div>
+                <a href="https://jaingopal07.github.io/ecommerce-clone/">
+                    <button class="view-products">View products</button>
+                </a>
+            </div>
+            <div class="cart-summary"></div>
+            <div class="payment-summary">
+                <div class="payment-info">
+                    <div class="payment-summary-title">
+                        Order Summary
+                    </div>
+                    <div class="payment-summary-row">
+                        <div class="items-text">
+                            Items (<span class="no-of-items">4</span>):
+                        </div>
+                        <div class="payment-summary-money" id="order-cost-bef-tax">
+                            $53.65
+                        </div>
+                    </div>
+                    <div class="payment-summary-row">
+                        <div>
+                            Shipping & handling:
+                        </div>
+                        <div class="payment-summary-money" id="shipping-cost">
+                            $0.00
+                        </div>
+                    </div>
+                    <div class="payment-summary-row">
+                        <div class="subtotal-row">
+                            Total before tax:
+                        </div>
+                        <div class="payment-summary-money" id="total-before-tax">
+                            $53.65
+                        </div>
+                    </div>
+                    <div class="payment-summary-row">
+                        <div>
+                            Estimated tax (10%):
+                        </div>
+                        <div class="payment-summary-money" id="tax-amount">
+                            $5.37
+                        </div>
+                    </div>
+                    <div class="payment-summary-row total-row">
+                        <div>
+                            Order total:
+                        </div>
+                        <div class="payment-summary-money" id="total-order-value">
+                            $59.02
+                        </div>
+                    </div>
+                    <div class="button-container-checkout">
+                        <button class="place-order-button">
+                            Place your order
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="scripts/checkout-functions.js"></script>
+    <script src="scripts/checkout.js"></script>
+</body>
+</html>
