@@ -6,7 +6,7 @@ let total_qty=0;
 
 
 cart.forEach((cartElement)=>{
-    total_qty+=cartElement.qty;
+    total_qty+=Number(cartElement.qty);
 });
 
 document.querySelector('.cart-qty').innerHTML=`${total_qty}`;
@@ -20,7 +20,7 @@ function addToCart(button){
     let found=false;
     cart.forEach((cartElement)=>{
         if(cartElement.product.id===products[i-1].id){
-            cartElement.qty+=quantity;
+            cartElement.qty=Number(cartElement.qty)+quantity;
             found=true;
         }
     });
