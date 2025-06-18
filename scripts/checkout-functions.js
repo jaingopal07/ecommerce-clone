@@ -61,8 +61,8 @@ function addInCartSummary(pdtElement,index){
                         <div class="quantity-container-updating" id="qty-cont-updating-pdt-${index}">
                             Quantity:
                             <input type="number" value="${pdtElement.qty}" class="input-qty input-qty-${index}" id="updated-qty-pdt-${index}">
-                            <span class="save-button" id="pdt-${index}">Save</span>
-                            <span class="delete-button" id="pdt-${index}">Delete</span>
+                            <span class="save-button save-button-${index}" id="pdt-${index}">Save</span>
+                            <span class="delete-button delete-button-${index}" id="pdt-${index}">Delete</span>
                         </div>
                     </div>
                 </div>
@@ -130,28 +130,6 @@ function updateButton(button){
     document.querySelector(`#qty-cont-updating-${buttonId}`).style.display='block';
 }
 
-function saveButton(button){
-   const buttonID=button.id;
-    const ind=Number(buttonID.slice(4));
-    const updated_qty=document.querySelector(`.input-qty-${ind}`).value;
-    const init_qty=cart[ind].qty;
-    cart[ind].qty=updated_qty;
-    document.querySelector(`.quantity-${ind}`).innerHTML=cart[ind].qty;
-    total_qty+=cart[ind].qty-init_qty;
-    total_price*=100;
-    total_price+=(cart[ind].product.price*100)*(cart[ind].qty-init_qty);
-    shipping_amount*=100;
-    tax=Math.round((total_price+shipping_amount)/10);
-    total_price/=100;
-    shipping_amount/=100;
-    tax/=100;
-    updatePricing();
-    updatePage();
-    localStorage.setItem('cart-storage', JSON.stringify(cart));
-    document.querySelector(`#qty-cont-${buttonID}`).style.display='block';
-    document.querySelector(`#qty-cont-updating-${buttonID}`).style.display='none';
-}
-
 function deleteButton(button){
     const buttonID=button.id;
     const ind=Number(buttonID.slice(4));
@@ -160,6 +138,36 @@ function deleteButton(button){
     updateValues(); 
     localStorage.setItem('cart-storage', JSON.stringify(cart));
 }
+
+function saveButton(button){
+    const buttonID=button.id;
+    const ind=Number(buttonID.slice(4));
+    const updated_qty=document.querySelector(`.input-qty-${ind}`).value;
+    if(!Number(updated_qty)){
+        deleteButton(document.querySelector(`.delete-button-${ind}`));
+    }
+    else{
+        const init_qty=cart[ind].qty;
+        cart[ind].qty=updated_qty;
+        document.querySelector(`.quantity-${ind}`).innerHTML=cart[ind].qty;
+        total_qty+=cart[ind].qty-init_qty;
+        total_price*=100;
+        total_price+=(cart[ind].product.price*100)*(cart[ind].qty-init_qty);
+        shipping_amount*=100;
+        tax=Math.round((total_price+shipping_amount)/10);
+        total_price/=100;
+        shipping_amount/=100;
+        tax/=100;
+        updatePricing();
+        updatePage();
+        localStorage.setItem('cart-storage', JSON.stringify(cart));
+        document.querySelector(`#qty-cont-${buttonID}`).style.display='block';
+        document.querySelector(`#qty-cont-updating-${buttonID}`).style.display='none';
+    }
+    
+}
+
+
 
 function changeDelivery(button){
     const buttonId=button.id;

@@ -39,3 +39,12 @@ cartSummaryElement.addEventListener('click', (e) => {
     changeDelivery(e.target);
   }
 });
+cartSummaryElement.addEventListener('keydown',(e)=>{
+  if(e.key==='Enter'){
+    if(e.target.classList.contains('input-qty')){
+      Id=e.target.id;
+      ind=Id.slice(16);
+      saveButton(document.querySelector(`.save-button-${ind}`))
+    }
+  }
+});
