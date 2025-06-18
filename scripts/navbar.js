@@ -61,7 +61,7 @@ function search(){
     }
     last_searched=searched;
     if(!searched){
-        window.location.href="https://jaingopal07.github.io/amazon-clone/";
+        window.location.href="https://jaingopal07.github.io/ecommerce-clone/";
         return;
     }
     const searched_products=[];
