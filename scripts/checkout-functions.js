@@ -165,7 +165,12 @@ function changeDelivery(button){
     const init_val=cart[ind].delivery;
     cart[ind].delivery=val;
     document.querySelector(`.selected-date-${ind}`).innerHTML=delivery[`${cart[ind].delivery}`];
-    shipping_amount=((shipping_amount*100)+val-init_val)/100;
+    shipping_amount=((shipping_amount*100)+val-init_val);
+    total_price*=100;
+    tax=Math.round((total_price+shipping_amount)/10);
+    tax/=100;
+    total_price/=100;
+    shipping_amount/=100;
     updatePricing();
     localStorage.setItem('cart-storage', JSON.stringify(cart));
 }
