@@ -46,24 +46,27 @@ function addInCartSummary(pdtElement,index){
                 Delivery date: <span class="selected-date-${index}" id="pdt-${index}">${delivery[`${pdtElement.delivery}`]}</span>
             </div>
             <div class="cart-item-detail-grid">
-                <img class="product-image" src="Pdt_Img/${pdtElement.product.img_src}">
-                <div class="cart-item-details">
-                    <div class="product-name">
-                        ${pdtElement.product.name}
-                    </div>
-                    <div class="product-price">
-                        $${pdtElement.product.price}
-                    </div>
-                    <div class="quantity-container" id="qty-cont-pdt-${index}">
-                        Quantity: <span class="quantity-${index}" id="pdt-${index}">${pdtElement.qty} </span> <span class="update-button" id="pdt-${index}">Update </span><span class="delete-button" id="pdt-${index}">Delete</span>
-                    </div>
-                    <div class="quantity-container-updating" id="qty-cont-updating-pdt-${index}">
-                        Quantity:
-                        <input type="number" value="${pdtElement.qty}" class="input-qty input-qty-${index}" id="updated-qty-pdt-${index}">
-                        <span class="save-button" id="pdt-${index}">Save</span>
-                        <span class="delete-button" id="pdt-${index}">Delete</span>
+                <div class="img_price_grid">
+                    <img class="product-image" src="Pdt_Img/${pdtElement.product.img_src}">
+                    <div class="cart-item-details">
+                        <div class="product-name">
+                            ${pdtElement.product.name}
+                        </div>
+                        <div class="product-price">
+                            $${pdtElement.product.price}
+                        </div>
+                        <div class="quantity-container" id="qty-cont-pdt-${index}">
+                            Quantity: <span class="quantity-${index}" id="pdt-${index}">${pdtElement.qty} </span> <span class="update-button" id="pdt-${index}">Update </span><span class="delete-button" id="pdt-${index}">Delete</span>
+                        </div>
+                        <div class="quantity-container-updating" id="qty-cont-updating-pdt-${index}">
+                            Quantity:
+                            <input type="number" value="${pdtElement.qty}" class="input-qty input-qty-${index}" id="updated-qty-pdt-${index}">
+                            <span class="save-button" id="pdt-${index}">Save</span>
+                            <span class="delete-button" id="pdt-${index}">Delete</span>
+                        </div>
                     </div>
                 </div>
+                
                 <div class="delivery-options">
                     <div class="choose-delivery-option">
                         Choose a delivery option:

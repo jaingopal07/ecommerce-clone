@@ -1,3 +1,9 @@
+.page-title{
+    font-size:22px;
+    height:26px;
+    margin-bottom: 18px;
+    font-weight: 700;
+}
 .checkout-grid{
     display: grid;
     grid-template-columns: 1fr 350px;
@@ -23,7 +29,13 @@
 }
 .cart-item-detail-grid{
     display: grid;
-    grid-template-columns: 100px 1fr 275px;
+    grid-template-columns: 1fr 275px;
+    column-gap:25px;
+    height:183.5px;
+}
+.img_price_grid{
+    display: grid;
+    grid-template-columns: 100px 1fr;
     column-gap:25px;
     height:183.5px;
 }
@@ -33,7 +45,7 @@
 }
 .product-image{
     max-width: 100%;
-    max-height: 100%;
+    max-height: 120px;
 }
 .product-name{
     font-weight:700;
@@ -163,3 +175,43 @@
 .place-order-button:hover{
     background-color:#F7CA00;
 }
+@media(max-width:1070px){
+    .checkout-grid{
+        display:block;
+    }
+    .payment-summary{
+        width:100%;
+        box-sizing: border-box;
+        padding:18px 18px 5px 18px;
+        border:1px solid rgb(222,222,222);
+        border-radius: 4px;
+        margin-bottom:12px;
+        height:304px;
+    }
+    .product-card{
+        width:100%;
+        margin-bottom: 12px;
+        padding:18px;
+        box-sizing: border-box;
+        height:399.91px;
+    }
+    .cart-item-detail-grid{
+        display:flex;
+        flex-direction: column;
+        row-gap: 30px;
+    }
+    .img_price_grid{
+        height:100px;
+        width:100%;
+        display: grid;
+        grid-template-columns: 100px 1fr;
+        column-gap:25px;
+    }
+    .delivery-options{
+        height:183.5px;
+    }
+    .checkout-grid{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+}   

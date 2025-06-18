@@ -48,7 +48,3 @@ productGridElement.addEventListener('click',(e)=>{
         addToCart(e.target);
     }
 });
-
-
-
-

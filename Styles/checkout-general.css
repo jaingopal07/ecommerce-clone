@@ -14,3 +14,14 @@ main{
     align-self:center;
     justify-self: center;
 }
+@media(max-width:1070px){
+    main{
+        width:100%;
+        max-width: 560px;
+        box-sizing: border-box;
+        padding:0px 30px;
+        margin: 140px 16.5px 100px 16.5px;
+        align-self:center;
+        justify-self: center;
+    }
+}
