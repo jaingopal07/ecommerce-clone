@@ -1,4 +1,5 @@
 import { products } from "../data/product.js";
+import {renderPage,searched_products} from "./grid.js"
 let last_searched='';
 
 function find(name,key){
@@ -53,19 +54,12 @@ function find(name,key){
     return false;
 }
 
-
-
-function search(){
-    const searched=document.querySelector('.search-bar').value.toLowerCase();
-    if(last_searched===searched){
-        return;
-    }
-    last_searched=searched;
+export function searchWithKey(searched){
     if(!searched){
-        window.location.href="https://jaingopal07.github.io/ecommerce-clone/";
+        window.location.assign("https://jaingopal07.github.io/ecommerce-clone/");
         return;
     }
-    const searched_products=[];
+    searched_products.length=0;
     products.forEach((productElement)=>{
         const pdt_name=productElement.name.toLowerCase();
         if(find(pdt_name,searched)){
@@ -73,27 +67,44 @@ function search(){
         }
     })
     
-    if(searched_products.length===0){
-        document.querySelector('.empty-message').style.display='block';
-    }
-
-    makeProductGrid(searched_products);
+    const newUrl = `${window.location.pathname}?search=${encodeURIComponent(searched)}`;
+    window.history.pushState({}, '', newUrl);
+    renderPage();
 }
 
+function search(){
+    const searched=navbarElement.querySelector('.search-bar').value.toLowerCase();
+    if(last_searched===searched){
+        return;
+    }
+    last_searched=searched;
+    searchWithKey(searched);
+}
 
-document.querySelector('.search').addEventListener('click',()=>{
-    search();
-})
+const navbarElement = document.querySelector('.navbar');
 
-document.querySelector('.hamburger-menu-header').addEventListener('click',()=>{
-    document.querySelector('.hamburger-menu-dropdown').style.display='grid';
-});
-
-document.getElementById('search-bar').addEventListener('keydown',(event)=>{
-    if(event.key==='Enter'){
+navbarElement.addEventListener('click', (e) => {
+    if (e.target.closest('.search')) {
         search();
     }
-    else if(event.key==='Escape'){
-        document.getElementById('search-bar').value='';
+    else if(e.target.classList.contains('hamburger-menu-header')){
+        if(document.querySelector('.hamburger-menu-dropdown').style.display==='grid'){
+            document.querySelector('.hamburger-menu-dropdown').style.display='none';
+        }
+        else{
+            document.querySelector('.hamburger-menu-dropdown').style.display='grid';
+        }
+        
+    }
+});
+
+navbarElement.addEventListener('keydown',(e)=>{
+    if(e.target.id==='search-bar'){
+        if(e.key==='Enter'){
+            search();
+        }
+        else if(e.key==='Escape'){
+            document.getElementById('search-bar').value='';
+        }
     }
 })
