@@ -1,3 +1,4 @@
+import { products } from "../data/product.js";
 let last_searched='';
 
 function find(name,key){
@@ -78,6 +79,7 @@ function search(){
 
     makeProductGrid(searched_products);
 }
+
 
 document.querySelector('.search').addEventListener('click',()=>{
     search();

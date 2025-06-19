@@ -1,4 +1,4 @@
-const products=[
+export const products=[
 {
     name:"Black and Gray Athletic Cotton Socks - 6 Pairs",
     stars:"45",
@@ -336,62 +336,3 @@ const products=[
     id:42
 },
 ]
-
-
-productGridElement=document.querySelector('.product-grid');
-
-function makeProductGrid(products_local){
-    productGridElement.innerHTML='';
-    products_local.forEach((productElement)=>{
-        productGridElement.innerHTML+=
-        `
-            <div class="product-card">
-                    <div class="product-image-cont">
-                        <img src="Pdt_Img/${
-                            productElement.img_src
-                        }" class="product-image">
-                    </div>
-                    <div class="product-name limit-to-2-lines">
-                        ${
-                            productElement.name
-                        }
-                    </div>
-                    <div class="product-rating-cont">
-                        <img class="rating-stars" src="Stars/rating-${productElement.stars}.png">
-                        <div class="product-rating-count">
-                            ${productElement.reviews}
-                        </div>
-                    </div>
-                    <div class="product-price">
-                        $${productElement.price}
-                    </div>
-                    <div class="product-qty-cont">
-                        <select class="pdt-qty" id="pdt-qty-${productElement.id}">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                        </select>
-                    </div>
-                    <div class="added-to-cart-cont">
-                        <div class="added-to-cart" id="${productElement.id}">
-                            <img class="added-to-cart-logo"  src="Logo/checkmark.png">
-                            Added
-                        </div>
-                    </div>
-                    <button class="add-to-cart-button" id="${productElement.id}">
-                        Add to Cart
-                    </button>
-                </div>
-        `
-    });
-}
-
-
-makeProductGrid(products);
